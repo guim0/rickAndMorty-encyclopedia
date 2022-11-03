@@ -3,7 +3,7 @@
 Foi usado também para integração, a API do Rick e Morty, focando nos personagens!
 
 ### API
-[!Rick and Morty API]('https://rickandmortyapi.com/documentation/#character')
+[!Rick and Morty API](https://rickandmortyapi.com/documentation/#character)
 
 ### Para rodar: ``yarn``
 
@@ -18,4 +18,4 @@ Foi usado também para integração, a API do Rick e Morty, focando nos personag
 ---
 ## Deployed on Vercel:
 
-[!Rick and Morty - Vercel]('https://rick-and-morty-react-query-iota.vercel.app/')
+[!Rick and Morty - Vercel](https://rick-and-morty-react-query-iota.vercel.app/)
