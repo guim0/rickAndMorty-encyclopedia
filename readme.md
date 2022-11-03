@@ -15,3 +15,7 @@ Foi usado também para integração, a API do Rick e Morty, focando nos personag
 - Typescript
 - SASS
 - React Query
+---
+## Deployed on Vercel:
+
+[!Rick and Morty - Vercel]('https://rick-and-morty-react-query-iota.vercel.app/')
