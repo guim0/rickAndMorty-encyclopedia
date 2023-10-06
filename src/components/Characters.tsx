@@ -1,5 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
+import { fetchCharacters } from "../api/fetchAllCharacter";
+import RickAndMortyLogo from "../assets/logo.png";
 import Character from "./Character";
 
 export type ICharacters = {
@@ -14,31 +16,36 @@ export type ICharacters = {
 
 export default function Characters() {
   const [page, setPage] = useState(1);
-  const fetchCharacters = async ({ queryKey }: any) => {
-    const response = await fetch(
-      `https://rickandmortyapi.com/api/character/?page=${queryKey[1]}`
-    );
 
-    return response.json();
-  };
-
-  const { data, status, isPreviousData } = useQuery({
-    queryKey: ["characters", page],
-    queryFn: fetchCharacters,
-  });
+  const queryKey = ["characters", page];
+  const queryFn = () => fetchCharacters(queryKey, page);
+  const { data, status, isPreviousData } = useQuery(queryKey, queryFn);
 
   if (status === "loading") return <div> loading ...</div>;
   if (status === "error") return <div>Something went wrong 😢</div>;
 
   return (
     <section className="container">
-      <h1>Rick and Morty</h1>
+      <div className="headlines">
+        <h1>Welcome</h1>
+        <h3>
+          This is my version of being aware of what is happening on Rick and
+          Morty universe
+        </h3>
+        <img
+          className="logo-rick"
+          src={RickAndMortyLogo}
+          alt="logo rick and morty"
+        />
+        <h2>Characters</h2>
+      </div>
 
       <div className="characters">
-        {data?.results.map((character: ICharacters) => (
-          <Character {...character} />
+        {data?.results.map((character: ICharacters, idx: number) => (
+          <Character key={idx} {...character} />
         ))}
       </div>
+
       <footer className="pagination">
         {
           <li>
