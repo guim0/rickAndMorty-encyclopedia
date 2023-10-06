@@ -161,3 +161,25 @@ button {
     }
   }
 }
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.logo-rick {
+  max-width: 550px;
+  margin: 0 auto;
+  background-image: url("./assets//portal-rick.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.headlines {
+  color: white;
+  text-align: center;
+
+  > h2 {
+    margin: 2rem 0;
+  }
+}
