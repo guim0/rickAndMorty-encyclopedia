@@ -1,6 +1,6 @@
 section {
   background-color: rgb(36, 40, 46);
-  height: 100%;
+  height: 100vh;
 }
 .container {
   width: 90%;
@@ -12,9 +12,10 @@ section {
 }
 
 .logo-rick {
-  max-width: 550px;
+  max-width: 850px;
   margin: 0 auto;
   background-image: url("../assets/portal-rick.png");
+  background-size: 450px;
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -23,8 +24,10 @@ section {
   color: white;
   text-align: center;
 
-  > h2 {
+  > h3 {
     margin: 2rem 0;
+    font-weight: 300;
+    font-size: 2rem;
   }
 }
 .about {
