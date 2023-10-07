@@ -1,0 +1,63 @@
+section {
+  background-color: rgb(36, 40, 46);
+  height: 100vh;
+}
+.container {
+  width: 90%;
+  margin: 0 auto;
+
+  @media only screen and (max-width: 745px) {
+    width: 100%;
+  }
+}
+
+.logo-rick {
+  max-width: 850px;
+  margin: 0 auto;
+  background-image: url("../assets/portal-rick.png");
+  background-size: 450px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.headlines {
+  color: white;
+  text-align: center;
+
+  > h3 {
+    margin: 2rem 0;
+    font-weight: 300;
+    font-size: 2rem;
+  }
+}
+.about {
+  width: 100%;
+
+  text-align: center;
+  > h2 {
+    color: white;
+  }
+
+  ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    gap: 2rem;
+    margin: 1rem auto;
+    transition: 1s ease-in-out;
+    :hover {
+      transition: 1s ease-in-out;
+      background-repeat: no-repeat;
+      background-position: top;
+      background-image: url("../assets/portal-rick.png");
+    }
+    li {
+      background-color: white;
+
+      padding: 1rem 2rem;
+      font-size: 1.8rem;
+      cursor: pointer;
+      border-radius: 0.8rem;
+    }
+  }
+}
