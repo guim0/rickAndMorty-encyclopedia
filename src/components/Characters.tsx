@@ -1,7 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
-import { fetchCharacters } from "../api/fetchAllCharacter";
+import { fetchCharacters } from "../api/Character";
+import "../styles/CharactersPage.scss";
 import Character from "./Character";
+import { Loading } from "./Loading";
 import { Pagination } from "./Pagination";
 
 export type ICharacters = {
@@ -19,13 +21,17 @@ export default function Characters() {
 
   const queryKey = ["characters", page];
   const queryFn = () => fetchCharacters(queryKey, 1);
-  const { data, status, isPreviousData } = useQuery(queryKey, queryFn);
+  const { data, status, isPreviousData, isLoading } = useQuery(
+    queryKey,
+    queryFn
+  );
 
-  if (status === "loading") return <div> loading ...</div>;
+  if (status === "loading")
+    return <Loading isLoading={isLoading || status === "loading"} />;
   if (status === "error") return <div>Something went wrong 😢</div>;
 
   return (
-    <section className="container">
+    <>
       <div className="characters">
         {data?.results.map((character: ICharacters, idx: number) => (
           <Character key={idx} {...character} />
@@ -36,6 +42,6 @@ export default function Characters() {
         isPreviousData={isPreviousData}
         setPage={setPage}
       />
-    </section>
+    </>
   );
 }

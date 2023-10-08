@@ -1,3 +1,4 @@
+import "../styles/CharacterCard.scss";
 import { ICharacters } from "./Characters";
 
 export default function Character(props: ICharacters) {
@@ -12,9 +13,9 @@ export default function Character(props: ICharacters) {
       <img src={props.image} alt={`${props.name} Photo`} />
       <div className="text-container">
         <div>
-          <h4>{props.name}</h4>
+          <h4>Name: {props.name}</h4>
 
-          <p className="species">{props.species}</p>
+          <p className="species"> Specie: {props.species}</p>
           <div className="status">
             <span className={lifeSign(props.status)}></span>
             {props.status}

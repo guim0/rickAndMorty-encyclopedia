@@ -1,6 +1,6 @@
+import { Link } from "react-router-dom";
 import RickAndMortyLogo from "../assets/logo.png";
 import "../styles/Home.scss";
-
 export const Home = () => {
   return (
     <section className="container">
@@ -20,7 +20,9 @@ export const Home = () => {
         <h2>Here you i'll find:</h2>
         <h3>
           <ul>
-            <li>The Characters</li>
+            <Link to="/characters">
+              <li>The Characters</li>
+            </Link>
             <li>The Locations</li>
             <li>The Episodes</li>
           </ul>
