@@ -1,16 +1,18 @@
 import Characters from "../components/Characters";
+import { GoBack } from "../components/goBack";
 import "../styles/CharactersPage.scss";
 
 export const CharactersPage = () => {
   return (
-    <>
-      <section className="container">
-        <h2>Characters list</h2>
+    <section className="container">
+      <GoBack />
+      <div className="headlines">
+        <h1 className="title">Characters</h1>
 
-        <h2>Characters</h2>
+        {/* <Filter/> TO-DO: Implement a filtering component*/}
+      </div>
 
-        <Characters />
-      </section>
-    </>
+      <Characters />
+    </section>
   );
 };

@@ -1,3 +1,5 @@
+import "../styles/Pagination.scss";
+
 interface IPagination {
   page: number;
   isPreviousData: boolean;
@@ -9,7 +11,11 @@ export const Pagination = ({ page, isPreviousData, setPage }: IPagination) => {
     <footer className="pagination">
       {
         <li>
-          <button disabled={page === 1} onClick={() => setPage(page - 1)}>
+          <button
+            disabled={page === 1}
+            onClick={() => setPage(page - 1)}
+            className={page <= 1 ? "buttonDisabled" : "button"}
+          >
             Prev
           </button>
         </li>
@@ -18,7 +24,11 @@ export const Pagination = ({ page, isPreviousData, setPage }: IPagination) => {
         <span>Page {page}</span>
       </li>
       <li>
-        <button disabled={isPreviousData} onClick={() => setPage(page + 1)}>
+        <button
+          disabled={isPreviousData}
+          onClick={() => setPage(page + 1)}
+          className="button"
+        >
           Next
         </button>
       </li>

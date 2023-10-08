@@ -1,0 +1,23 @@
+.container {
+  width: 90%;
+  margin: 0 auto;
+  height: auto;
+  @media only screen and (max-width: 745px) {
+    width: 100%;
+  }
+}
+
+.characters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+.headlines {
+  padding: 3rem 0;
+  > h1 {
+    font-size: 4rem;
+    font-weight: 400;
+    color: white;
+  }
+}
