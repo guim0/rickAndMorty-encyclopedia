@@ -14,9 +14,9 @@ section {
 
 .logo-rick {
   max-width: 850px;
+  width: 100%;
   margin: 0 auto;
   background-image: url("../assets/portal-rick.png");
-  background-size: 450px;
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -47,6 +47,7 @@ section {
     gap: 2rem;
     margin: 1rem auto;
     transition: 1s ease-in-out;
+    flex-wrap: wrap;
 
     :hover {
       transition: 1s ease-in-out;
