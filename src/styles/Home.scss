@@ -1,6 +1,9 @@
 section {
   background-color: rgb(36, 40, 46);
   height: 100vh;
+  @media only screen and (max-width: 745px) {
+    height: auto;
+  }
 }
 .container {
   width: 90%;
@@ -9,6 +12,8 @@ section {
   background-color: rgb(36, 40, 46);
   @media only screen and (max-width: 745px) {
     width: 100%;
+    height: auto;
+    padding-bottom: 2rem;
   }
 }
 
@@ -19,6 +24,10 @@ section {
   background-image: url("../assets/portal-rick.png");
   background-repeat: no-repeat;
   background-position: center;
+
+  @media only screen and (max-width: 745px) {
+    background-size: 230px;
+  }
 }
 
 .headlines {
