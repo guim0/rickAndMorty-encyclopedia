@@ -1,6 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
+import { fetchCharacters } from "../api/Character";
+import "../styles/CharactersPage.scss";
 import Character from "./Character";
+import { Loading } from "./Loading";
+import { Pagination } from "./Pagination";
 
 export type ICharacters = {
   id: number;
@@ -14,51 +18,30 @@ export type ICharacters = {
 
 export default function Characters() {
   const [page, setPage] = useState(1);
-  const fetchCharacters = async ({ queryKey }: any) => {
-    const response = await fetch(
-      `https://rickandmortyapi.com/api/character/?page=${queryKey[1]}`
-    );
 
-    return response.json();
-  };
+  const queryKey = ["characters", page];
+  const queryFn = () => fetchCharacters(queryKey, 1);
+  const { data, status, isPreviousData, isLoading } = useQuery(
+    queryKey,
+    queryFn
+  );
 
-  const { data, status, isPreviousData } = useQuery({
-    queryKey: ["characters", page],
-    queryFn: fetchCharacters,
-  });
-
-  if (status === "loading") return <div> loading ...</div>;
+  if (status === "loading")
+    return <Loading isLoading={isLoading || status === "loading"} />;
   if (status === "error") return <div>Something went wrong 😢</div>;
 
   return (
-    <section className="container">
-      <h1>Rick and Morty</h1>
-
+    <>
       <div className="characters">
-        {data?.results.map((character: ICharacters) => (
-          <Character {...character} />
+        {data?.results.map((character: ICharacters, idx: number) => (
+          <Character key={idx} {...character} />
         ))}
       </div>
-      <footer className="pagination">
-        {
-          <li>
-            <button disabled={page === 1} onClick={() => setPage(page - 1)}>
-              Prev
-            </button>
-          </li>
-        }
-        <li>
-          <span>Page {page}</span>
-        </li>
-        <li>
-          <button
-            disabled={isPreviousData && !data.info.next}
-            onClick={() => setPage(page + 1)}
-          >
-            Next
-          </button>
-        </li>
-      </footer>
-    </section>
+      <Pagination
+        page={page}
+        isPreviousData={isPreviousData}
+        setPage={setPage}
+      />
+    </>
   );
 }

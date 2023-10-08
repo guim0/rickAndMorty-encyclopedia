@@ -1,21 +1,29 @@
-## Olá! projeto criado para estudar React Query!
+## Welcome to my repository, this is an attempt to create an encyclopedia of the Rick and Morty universe.
 
-Foi usado também para integração, a API do Rick e Morty, focando nos personagens!
+### In this project...
 
-### API
-[!Rick and Morty API](https://rickandmortyapi.com/documentation/#character)
+We are using a well-known API to study React-query. In this opportunity, the intention is to create an encyclopedia with as much information as the API can provide.
 
-### Para rodar: ``yarn``
+## API
 
-### Depois: ``yarn dev``
+### [Rick and Morty API](https://rickandmortyapi.com/documentation/#character)
 
-### Tecnologias usadas:
+---
+
+### To run: `yarn`
+
+### Then: `yarn dev`
+
+### Technologies used:
+
 - Vite
 - React
 - Typescript
 - SASS
 - React Query
----
-## Deployed on Vercel:
 
-[!Rick and Morty - Vercel](https://rick-and-morty-react-query-iota.vercel.app/)
+---
+
+# Deployed on Vercel:
+
+## [Rick and Morty - Vercel](https://rick-and-morty-react-query-iota.vercel.app/)

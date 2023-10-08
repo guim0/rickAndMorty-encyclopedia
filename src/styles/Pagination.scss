@@ -1,0 +1,38 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem 0;
+  > li {
+    text-decoration: none;
+    list-style: none;
+  }
+  > li span {
+    color: white;
+  }
+}
+
+.button {
+  height: 3rem;
+  font-size: 1.5rem;
+  padding: 0rem 2rem;
+
+  background-color: #3d5a80;
+  border-radius: 1rem;
+  color: #e0fbfc;
+  border: none;
+  outline: none;
+}
+.buttonDisabled {
+  height: 3rem;
+  font-size: 1.5rem;
+  padding: 0rem 2rem;
+
+  cursor: not-allowed;
+  background-color: #98c1d9;
+  border-radius: 1rem;
+  color: #e0fbfc;
+  border: none;
+  outline: none;
+}
