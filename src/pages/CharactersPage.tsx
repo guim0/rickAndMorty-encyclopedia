@@ -4,7 +4,7 @@ import "../styles/CharactersPage.scss";
 
 export const CharactersPage = () => {
   return (
-    <section className="container">
+    <>
       <GoBack />
       <div className="headlines">
         <h1 className="title">Characters</h1>
@@ -13,6 +13,6 @@ export const CharactersPage = () => {
       </div>
 
       <Characters />
-    </section>
+    </>
   );
 };
