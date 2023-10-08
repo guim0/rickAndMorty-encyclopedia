@@ -8,7 +8,7 @@ export const GoBack = () => {
           color: "white",
           fontSize: "1.5rem",
           fontWeight: "400",
-          padding: "1.5rem 0",
+          padding: "1.5rem 2rem",
         }}
       >
         {" "}
