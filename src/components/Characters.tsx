@@ -26,8 +26,7 @@ export default function Characters() {
     queryFn
   );
 
-  if (status === "loading")
-    return <Loading isLoading={isLoading || status === "loading"} />;
+  if (status === "loading") return <Loading isLoading={isLoading} />;
   if (status === "error") return <div>Something went wrong 😢</div>;
 
   return (
