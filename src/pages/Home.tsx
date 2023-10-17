@@ -19,7 +19,7 @@ export const Home = () => {
       </div>
       <div className="about">
         <h2>Here you i'll find:</h2>
-        <h3>
+        <div className="links">
           <ul>
             <Link to={Routes.CHARACTERS}>
               <li>The Characters</li>
@@ -29,7 +29,7 @@ export const Home = () => {
             </Link>
             <li>The Episodes</li>
           </ul>
-        </h3>
+        </div>
       </div>
     </section>
   );

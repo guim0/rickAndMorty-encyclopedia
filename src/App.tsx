@@ -1,11 +1,12 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./App.scss";
 import { CharactersPage } from "./pages/Characters";
 import { Home } from "./pages/Home";
 import { LocationsPage } from "./pages/Locations";
 import { Routes as URL } from "./routes";
-
 const queryClient = new QueryClient();
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           </Routes>
         </Router>
       </QueryClientProvider>
+      <ToastContainer />
     </main>
   );
 }
