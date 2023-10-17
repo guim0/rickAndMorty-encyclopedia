@@ -1,11 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 
-export const useCharacters = (page: number) => {
-  const queryKey = ["characters", page];
-
-  const fetchCharacters = async () => {
+export const useLocations = (page: number) => {
+  const queryKey = ["locations", page];
+  const fetchLocations = async () => {
     const response = await fetch(
-      `https://rickandmortyapi.com/api/character/?page=${page}`
+      `https://rickandmortyapi.com/api/location?page=${page}`
     );
 
     const data = response.json();
@@ -14,7 +13,7 @@ export const useCharacters = (page: number) => {
 
   const { data, status, isPreviousData, isLoading } = useQuery(
     queryKey,
-    fetchCharacters
+    fetchLocations
   );
 
   return {
