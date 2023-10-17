@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { useLocations } from "../api/Location";
-import "../styles/LocationCard.scss";
-import { Loading } from "./Loading";
-import { Pagination } from "./Pagination";
+import { useLocations } from "../../api/Location";
+import "../../styles/LocationCard.scss";
+import { Loading } from "../Loading";
+import { Pagination } from "../Pagination";
 interface ILocationCard {
   id: number;
   name: string;

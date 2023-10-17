@@ -1,5 +1,5 @@
-import { Location } from "../components/Location";
-import { GoBack } from "../components/goBack";
+import { GoBack } from "../components/Dumb/goBack";
+import { Location } from "../components/Locations/Location";
 import "../styles/LocationPage.scss";
 
 export const LocationsPage = () => {
