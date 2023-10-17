@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import RickAndMortyLogo from "../assets/logo.png";
+import { Routes } from "../routes";
 import "../styles/Home.scss";
 export const Home = () => {
   return (
@@ -20,10 +21,12 @@ export const Home = () => {
         <h2>Here you i'll find:</h2>
         <h3>
           <ul>
-            <Link to="/characters">
+            <Link to={Routes.CHARACTERS}>
               <li>The Characters</li>
             </Link>
-            <li>The Locations</li>
+            <Link to={Routes.LOCATIONS}>
+              <li>The Locations</li>
+            </Link>
             <li>The Episodes</li>
           </ul>
         </h3>
