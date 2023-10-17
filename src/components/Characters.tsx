@@ -1,6 +1,5 @@
-import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
-import { fetchCharacters } from "../api/Character";
+import { useCharacters } from "../api/Character";
 import "../styles/CharactersPage.scss";
 import Character from "./Character";
 import { Loading } from "./Loading";
@@ -16,19 +15,13 @@ export type ICharacters = {
   origin: { name: string };
 };
 
-export default function Characters() {
+export const Characters = () => {
   const [page, setPage] = useState(1);
 
-  const queryKey = ["characters", page];
-  const queryFn = () => fetchCharacters(queryKey, 1);
-  const { data, status, isPreviousData, isLoading } = useQuery(
-    queryKey,
-    queryFn
-  );
+  const { data, status, isPreviousData, isLoading } = useCharacters(page);
 
   if (status === "loading") return <Loading isLoading={isLoading} />;
   if (status === "error") return <div>Something went wrong 😢</div>;
-
   return (
     <>
       <div className="characters">
@@ -43,4 +36,4 @@ export default function Characters() {
       />
     </>
   );
-}
+};

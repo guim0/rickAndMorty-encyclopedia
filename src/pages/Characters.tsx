@@ -1,4 +1,4 @@
-import Characters from "../components/Characters";
+import { Characters } from "../components/Characters";
 import { GoBack } from "../components/goBack";
 import "../styles/CharactersPage.scss";
 
