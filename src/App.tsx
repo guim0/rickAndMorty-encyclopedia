@@ -3,6 +3,8 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import "./App.scss";
 import { CharactersPage } from "./pages/Characters";
 import { Home } from "./pages/Home";
+import { LocationsPage } from "./pages/Locations";
+import { Routes as URL } from "./routes";
 
 const queryClient = new QueryClient();
 
@@ -12,8 +14,9 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <Router>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/characters" element={<CharactersPage />} />
+            <Route path={URL.HOME} element={<Home />} />
+            <Route path={URL.CHARACTERS} element={<CharactersPage />} />
+            <Route path={URL.LOCATIONS} element={<LocationsPage />} />
           </Routes>
         </Router>
       </QueryClientProvider>
