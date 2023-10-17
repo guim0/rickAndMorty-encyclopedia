@@ -43,7 +43,12 @@ export const Location = () => {
 
   if (isLoading || status === "loading")
     return <Loading isLoading={isLoading} />;
-  console.log(data);
+  if (status === "error")
+    return (
+      <>
+        <h1>Something went wrong 😢</h1>
+      </>
+    );
   return (
     <>
       <section className="location_container">
