@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useCharacters } from "../../api/Character";
-import "../../styles/CharactersPage.scss";
+
 import { Loading } from "../Loading";
 import { Pagination } from "../Pagination";
 import Character from "./Character";
@@ -24,7 +24,7 @@ export const Characters = () => {
   if (status === "error") return <div>Something went wrong 😢</div>;
   return (
     <>
-      <div className="characters">
+      <div className="flex flex-wrap gap-3 justify-center">
         {data?.results.map((character: ICharacters, idx: number) => (
           <Character key={idx} {...character} />
         ))}

@@ -1,16 +1,17 @@
 import { GoBack } from "../components/Dumb/goBack";
 import { Location } from "../components/Locations/Location";
-import "../styles/LocationPage.scss";
 
 export const LocationsPage = () => {
   return (
-    <>
+    <main className="bg-gray-800 h-auto">
       <GoBack />
-      <main className="container">
-        <h1>Location</h1>
-        <p>Here lies the locations available on the Rick and Morty universe</p>
+      <main className="text-center text-white">
+        <h1 className="text-6xl">Location</h1>
+        <p className="text-2xl font-thin my-3">
+          Here lies the locations available on the Rick and Morty universe
+        </p>
         <Location />
       </main>
-    </>
+    </main>
   );
 };
