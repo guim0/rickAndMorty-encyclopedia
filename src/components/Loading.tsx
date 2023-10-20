@@ -6,7 +6,7 @@ interface ILoading {
 
 export const Loading = ({ isLoading }: ILoading) => {
   return isLoading ? (
-    <main className="loading">
+    <main className="loading bg-gray-800 h-screen">
       <img src={PortalGif} alt="loading..." />
     </main>
   ) : null;

@@ -7,7 +7,7 @@ export interface ILocationCard {
 export const LocationCard = ({ name }: ILocationCard) => {
   <>
     <div className="location_card">
-      <h2 className="location_name">{name}</h2>
+      <h2 className="location_name text-black">{name}</h2>
     </div>
   </>;
 };

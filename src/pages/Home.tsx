@@ -4,10 +4,10 @@ import { Routes } from "../routes";
 import "../styles/Home.scss";
 export const Home = () => {
   return (
-    <section className="container">
-      <div className="headlines">
-        <h1>Welcome</h1>
-        <h3>
+    <main className="bg-gray-800 h-screen">
+      <div className="text-center text-white py-8">
+        <p className="text-6xl mb-2">Welcome</p>
+        <h3 className="text-2xl py-2">
           This is my version of being aware of what is happening on the universe
           of:
         </h3>
@@ -27,10 +27,13 @@ export const Home = () => {
             <Link to={Routes.LOCATIONS}>
               <li>The Locations</li>
             </Link>
-            <li>The Episodes</li>
+
+            <Link to={Routes.EPISODES}>
+              <li>The Episodes</li>
+            </Link>
           </ul>
         </div>
       </div>
-    </section>
+    </main>
   );
 };

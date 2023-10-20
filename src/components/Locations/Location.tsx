@@ -50,8 +50,8 @@ export const Location = () => {
       </>
     );
   return (
-    <>
-      <section className="location_container">
+    <main className="bg-gray-800">
+      <section className="flex flex-wrap gap-3 justify-evenly">
         {data?.results.map((data: ILocationCard, idx: number) => (
           <LocationCard key={idx} {...data} />
         ))}
@@ -61,6 +61,6 @@ export const Location = () => {
         isPreviousData={isPreviousData}
         setPage={setPage}
       />
-    </>
+    </main>
   );
 };

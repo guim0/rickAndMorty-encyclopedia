@@ -1,25 +1,16 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Character from "../components/Characters/Character";
 import { Characters, ICharacters } from "../components/Characters/Characters";
 import { GoBack } from "../components/Dumb/goBack";
 import { Filter } from "../components/Filter";
-import "../styles/CharactersPage.scss";
 
 export const CharactersPage = () => {
   const [filteredList, setFilteredList] = useState<[] | undefined>([]);
 
-  const handleListing = () => {
-    if (filteredList && filteredList.length !== 0) {
+  const handleListing = useCallback(() => {
+    if (filteredList && filteredList?.length > 0) {
       return (
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            alignItems: "center",
-            justifyContent: "space-evenly",
-            gap: "2rem",
-          }}
-        >
+        <div className="flex flex-wrap gap-3 justify-center">
           {filteredList?.map((character: ICharacters, idx: number) => (
             <Character key={idx} {...character} />
           ))}
@@ -28,17 +19,17 @@ export const CharactersPage = () => {
     } else {
       <Characters />;
     }
-  };
+  }, [filteredList]);
 
   useEffect(() => {
     handleListing();
-  }, []);
+  });
 
   return (
-    <>
+    <main className="h-auto">
       <GoBack />
-      <div className="headlines">
-        <h1 className="title">Characters</h1>
+      <div className="text-center">
+        <h1 className="text-white text-5xl">Characters</h1>
 
         <Filter newData={setFilteredList} />
       </div>
@@ -48,6 +39,6 @@ export const CharactersPage = () => {
       ) : (
         <Characters />
       )}
-    </>
+    </main>
   );
 };
