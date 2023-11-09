@@ -10,7 +10,10 @@ export const useEpisodes = (page: number) => {
     return data;
   };
 
-  const { data, isLoading } = useQuery([QUERY_KEY.episodes, fetchEpisodes]);
+  const { data, isLoading } = useQuery(
+    [QUERY_KEY.episodes, page],
+    fetchEpisodes
+  );
 
   return {
     data,
