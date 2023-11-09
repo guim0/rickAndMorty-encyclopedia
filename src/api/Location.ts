@@ -12,7 +12,7 @@ export const useLocations = (page: number) => {
   };
 
   const { data, status, isPreviousData, isLoading } = useQuery(
-    [QUERY_KEY.locations],
+    [QUERY_KEY.locations, page],
     fetchLocations
   );
 

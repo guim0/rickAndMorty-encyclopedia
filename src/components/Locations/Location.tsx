@@ -15,7 +15,7 @@ const LocationCard = ({ name, dimension, type, residents }: ILocationCard) => {
     <>
       <section className="location_card">
         <div>
-          <h2>{name}</h2>
+          <h2 className="text-black">{name}</h2>
         </div>
         <div className="location_details">
           <div>

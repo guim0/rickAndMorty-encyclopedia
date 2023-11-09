@@ -1,44 +1,39 @@
 import { useQuery } from "@tanstack/react-query";
-import { useCallback, useState } from "react";
+import { useCallback } from "react";
 import { toast } from "react-toastify";
 import { QUERY_KEY } from "../../constants/queryKeys";
 
-export const useGetCharacter = () => {
-  const [filterValue, setFilterValue] = useState("");
-
-  const fetchFindCharacter = async (nameFilter: string) => {
-    if (!nameFilter) return;
-    if (filterValue === "i" && !nameFilter) setFilterValue(nameFilter);
-
+export const useGetCharacter = (nameFilter: string = "i", page: number = 1) => {
+  const fetchFindCharacter = async () => {
     const response = await fetch(
-      `https://rickandmortyapi.com/api/character/?name=${nameFilter}`
-    ).then((response) =>
-      response
-        .json()
-        .then((data) => ({ status: response.status, body: data.results }))
+      `https://rickandmortyapi.com/api/character/?page=${page}&name=${nameFilter}`
     );
+
+    const data = await response.json();
+
     if (response.status !== 200) {
       toast("Não encontrado.", {
         theme: "dark",
         autoClose: 3200,
         type: "error",
       });
-    }
-    console.log(response.body);
-    return response.body;
+    } else return data;
   };
 
-  const { data } = useQuery([QUERY_KEY.filterCharacter, filterValue], () =>
-    fetchFindCharacter(filterValue)
+  const { data, isLoading } = useQuery(
+    [QUERY_KEY.filterCharacter, nameFilter],
+    fetchFindCharacter
   );
 
   const handleClear = useCallback(() => {
-    setFilterValue("i");
+    nameFilter = "";
+    page = 1;
   }, []);
 
   return {
     handleInputChange: fetchFindCharacter,
     handleClear,
     data,
+    isLoading,
   };
 };

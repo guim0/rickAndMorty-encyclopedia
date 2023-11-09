@@ -1,32 +1,24 @@
-import { useState } from "react";
 import { toast } from "react-toastify";
-import { useGetCharacter } from "../api/Filter/getCharacter";
 import searchIcon from "../assets/lupa.png";
 import "../styles/Filter.scss";
+import { useState } from "react";
 
 interface IFilter {
-  newData: (data?: any) => void;
+  nameFiltered: (name: string) => void;
 }
 
-export const Filter = ({ newData }: IFilter) => {
+export const Filter = ({ nameFiltered }: IFilter) => {
   const [name, setName] = useState("");
 
-  const { handleInputChange, handleClear, data } = useGetCharacter();
-
-  const handleSubmit = async (value: string) => {
+  const handleSubmit = (value: string) => {
     if (value.length <= 2)
       return toast("3 ou mais caracteres necessários.", {
         type: "info",
         autoClose: 3200,
         theme: "dark",
       });
-    await handleInputChange(value);
-    console.log(data);
-    if (data) {
-      return newData(data);
-    } else {
-      return newData([]);
-    }
+
+    nameFiltered(value);
   };
 
   return (
@@ -58,7 +50,7 @@ export const Filter = ({ newData }: IFilter) => {
         <div
           role="button"
           onClick={() => {
-            name.length > 0 ? (handleClear(), setName("")) : null;
+            name.length > 0 ? setName("") : null;
           }}
           className={
             name.length > 0

@@ -1,29 +1,26 @@
-import { useCallback, useEffect, useState } from "react";
-import Character from "../components/Characters/Character";
-import { Characters, ICharacters } from "../components/Characters/Characters";
+import { useState } from "react";
+import { useCharacters } from "../api/Character";
+import { useGetCharacter } from "../api/Filter/getCharacter";
+import { Characters } from "../components/Characters/Characters";
 import { GoBack } from "../components/Dumb/goBack";
 import { Filter } from "../components/Filter";
+import { Pagination } from "../components/Pagination";
 
 export const CharactersPage = () => {
-  const [filteredList, setFilteredList] = useState<[] | undefined>([]);
+  const [nameFiltered, setNameFiltered] = useState("");
+  const [page, setPage] = useState(1);
+  const [pageFilter, setPageFilter] = useState(1);
 
-  const handleListing = useCallback(() => {
-    if (filteredList && filteredList?.length > 0) {
-      return (
-        <div className="flex flex-wrap gap-3 justify-center">
-          {filteredList?.map((character: ICharacters, idx: number) => (
-            <Character key={idx} {...character} />
-          ))}
-        </div>
-      );
-    } else {
-      <Characters />;
-    }
-  }, [filteredList]);
+  const { data, isLoading, isPreviousData, status } = useCharacters(page);
+  const { data: filteredData, isLoading: filterLoading } = useGetCharacter(
+    nameFiltered,
+    pageFilter
+  );
 
-  useEffect(() => {
-    handleListing();
-  });
+  const handleData = () => {
+    if (!nameFiltered && nameFiltered.length <= 2) return data?.results;
+    return filteredData?.results;
+  };
 
   return (
     <main className="h-auto bg-gray-800">
@@ -31,14 +28,21 @@ export const CharactersPage = () => {
       <div className="text-center">
         <h1 className="text-white text-5xl">Characters</h1>
 
-        <Filter newData={setFilteredList} />
+        <Filter nameFiltered={setNameFiltered} />
       </div>
-
-      {filteredList && filteredList?.length > 0 ? (
-        handleListing()
-      ) : (
-        <Characters />
-      )}
+      <Characters
+        data={handleData()}
+        isLoading={isLoading || filterLoading}
+        isPreviousData={isPreviousData}
+        status={status}
+      />
+      <Pagination
+        page={!nameFiltered && nameFiltered.length < 2 ? page : pageFilter}
+        isPreviousData={isPreviousData}
+        setPage={
+          !nameFiltered && nameFiltered.length < 2 ? setPage : setPageFilter
+        }
+      />
     </main>
   );
 };

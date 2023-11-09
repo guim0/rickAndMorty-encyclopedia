@@ -6,13 +6,12 @@ export const useCharacters = (page: number) => {
     const response = await fetch(
       `https://rickandmortyapi.com/api/character/?page=${page}`
     );
-
     const data = response.json();
     return data;
   };
 
   const { data, status, isPreviousData, isLoading } = useQuery(
-    [QUERY_KEY.characters],
+    [QUERY_KEY.characters, page],
     fetchCharacters
   );
 
