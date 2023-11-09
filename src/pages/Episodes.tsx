@@ -5,7 +5,7 @@ import { Loading } from "../components/Loading";
 export const EpisodesPage = () => {
   const [page, setPage] = useState(1);
   const { data, isLoading } = useEpisodes(page);
-  console.log(data);
+
   if (isLoading) return <Loading isLoading={isLoading} />;
   return (
     <main className="bg-gray-800 h-screen">
