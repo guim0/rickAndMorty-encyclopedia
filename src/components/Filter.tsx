@@ -1,13 +1,14 @@
+import { useState } from "react";
 import { toast } from "react-toastify";
 import searchIcon from "../assets/lupa.png";
 import "../styles/Filter.scss";
-import { useState } from "react";
 
 interface IFilter {
   nameFiltered: (name: string) => void;
+  clear: () => void;
 }
 
-export const Filter = ({ nameFiltered }: IFilter) => {
+export const Filter = ({ nameFiltered, clear }: IFilter) => {
   const [name, setName] = useState("");
 
   const handleSubmit = (value: string) => {
@@ -50,7 +51,7 @@ export const Filter = ({ nameFiltered }: IFilter) => {
         <div
           role="button"
           onClick={() => {
-            name.length > 0 ? setName("") : null;
+            clear(), setName("");
           }}
           className={
             name.length > 0
