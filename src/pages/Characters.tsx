@@ -12,10 +12,11 @@ export const CharactersPage = () => {
   const [pageFilter, setPageFilter] = useState(1);
 
   const { data, isLoading, isPreviousData, status } = useCharacters(page);
-  const { data: filteredData, isLoading: filterLoading } = useGetCharacter(
-    nameFiltered,
-    pageFilter
-  );
+  const {
+    data: filteredData,
+    isLoading: filterLoading,
+    handleClear,
+  } = useGetCharacter(nameFiltered, pageFilter);
 
   const handleData = () => {
     if (!nameFiltered && nameFiltered.length <= 2) return data?.results;
@@ -28,7 +29,7 @@ export const CharactersPage = () => {
       <div className="text-center">
         <h1 className="text-white text-5xl">Characters</h1>
 
-        <Filter nameFiltered={setNameFiltered} />
+        <Filter nameFiltered={setNameFiltered} clear={handleClear} />
       </div>
       <Characters
         data={handleData()}
