@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
-import searchIcon from "../assets/lupa.png";
+import searchIcon from "../assets/icons/lupa.png";
 import "../styles/Filter.scss";
 
 interface IFilter {
