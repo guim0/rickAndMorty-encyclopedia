@@ -4,15 +4,28 @@
 
 We are using a well-known API to study React-query. In this opportunity, the intention is to create an encyclopedia with as much information as the API can provide.
 
-## API
+### Funcionality
 
-### [Rick and Morty API](https://rickandmortyapi.com/documentation/#character)
+- Check all the Characters on the show
+- Episodes Info
+- Check the locations from Rick and Morty Universe
+- And more
 
 ---
 
-### To run: `yarn`
+### External API
 
-### Then: `yarn dev`
+- [Rick and Morty API](https://rickandmortyapi.com/documentation/#character)
+
+## How to Execute on your local
+
+### Install dependencies:
+
+`yarn`
+
+### Then:
+
+`yarn dev`
 
 ### Technologies used:
 
@@ -21,9 +34,10 @@ We are using a well-known API to study React-query. In this opportunity, the int
 - Typescript
 - SASS
 - React Query
+- TailwindCSS
 
 ---
 
-# Deployed on Vercel:
+### Deployed on Vercel
 
-## [Rick and Morty - Vercel](https://rick-and-morty-react-query-iota.vercel.app/)
+- [Rick and Morty - Vercel](https://rick-morty-encyclopedia.vercel.app/)

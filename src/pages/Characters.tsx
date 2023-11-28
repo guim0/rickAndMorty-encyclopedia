@@ -38,6 +38,7 @@ export const CharactersPage = () => {
         status={status}
       />
       <Pagination
+        next={data?.info.next !== null ? true : false}
         page={!nameFiltered && nameFiltered.length < 2 ? page : pageFilter}
         isPreviousData={isPreviousData}
         setPage={
