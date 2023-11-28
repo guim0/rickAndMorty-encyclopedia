@@ -4,9 +4,15 @@ interface IPagination {
   page: number;
   isPreviousData: boolean;
   setPage: (page: number) => void;
+  next?: boolean;
 }
 
-export const Pagination = ({ page, isPreviousData, setPage }: IPagination) => {
+export const Pagination = ({
+  page,
+  isPreviousData,
+  setPage,
+  next,
+}: IPagination) => {
   return (
     <footer className="pagination">
       {
@@ -20,14 +26,14 @@ export const Pagination = ({ page, isPreviousData, setPage }: IPagination) => {
           </button>
         </li>
       }
-      <li>
-        <span>Page {page}</span>
+      <li className="text-center">
+        <span>Page: {page}</span>
       </li>
       <li>
         <button
-          disabled={isPreviousData}
+          disabled={isPreviousData || next}
           onClick={() => setPage(page + 1)}
-          className="button"
+          className={next ? "buttonDisabled" : "button"}
         >
           Next
         </button>
