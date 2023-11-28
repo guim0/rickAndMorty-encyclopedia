@@ -4,7 +4,7 @@ interface IPagination {
   page: number;
   isPreviousData: boolean;
   setPage: (page: number) => void;
-  next: boolean;
+  next?: boolean;
 }
 
 export const Pagination = ({
