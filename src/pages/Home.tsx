@@ -1,39 +1,59 @@
 import { Link } from "react-router-dom";
+import { useCharacters } from "../api/Character";
 import RickAndMortyLogo from "../assets/logo.png";
+import Character from "../components/Characters/Character";
+import { ICharacters } from "../components/Characters/Characters";
 import { Routes } from "../routes";
 import "../styles/Home.scss";
 export const Home = () => {
+  const { data, isLoading, isPreviousData, status } = useCharacters(1);
+  const previewData = () => {
+    if (!data?.results) return [];
+
+    const dataSliced = data?.results.slice(1, 5);
+
+    return dataSliced.map((items: ICharacters) => <Character {...items} />);
+  };
+
   return (
-    <main className="bg-gray-800 h-screen">
-      <div className="text-center text-white py-8">
-        <p className="text-6xl mb-2">Welcome</p>
-        <h3 className="text-2xl py-2">
-          This is my version of being aware of what is happening on the universe
-          of:
-        </h3>
-        <img
-          className="logo-rick"
-          src={RickAndMortyLogo}
-          alt="logo rick and morty"
-        />
-      </div>
-      <div className="about">
-        <h2>Here you i'll find:</h2>
-        <div className="links">
-          <ul>
+    <main className="container">
+      <nav className="max-w-[1290px]">
+        <div className="links flex flex-wrap justify-center md:flex-nowrap md:justify-between px-6 w-full">
+          <div className="max-w-[300px] min-w-[200px] m-0 p-0 ">
+            <img src={RickAndMortyLogo} alt="logo" />
+          </div>
+          <ul className="flex justify-center items-center md:justify-evenly ">
             <Link to={Routes.CHARACTERS}>
-              <li>The Characters</li>
+              <li>Characters</li>
             </Link>
             <Link to={Routes.LOCATIONS}>
-              <li>The Locations</li>
+              <li>Locations</li>
             </Link>
 
             <Link to={Routes.EPISODES}>
-              <li>The Episodes</li>
+              <li>Episodes</li>
             </Link>
           </ul>
         </div>
-      </div>
+      </nav>
+
+      <section className="container px-4">
+        <div className="flex-col flex">
+          <h1 className="text-white text-3xl text-center">
+            This website is a attempt of listing the details from Rick And Morty
+            universe.
+          </h1>
+
+          <h3 className="text-white text-2xl">Preview from Characters</h3>
+          <p className="text-white text-1xl font-light ml-2">
+            Will be possible to visualize and search for Name on de "Characters"
+            Page
+          </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            {previewData()}
+          </div>
+        </div>
+      </section>
     </main>
   );
 };
