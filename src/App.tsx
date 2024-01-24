@@ -12,7 +12,7 @@ const queryClient = new QueryClient();
 
 function App() {
   return (
-    <main className="bg-gray-800 ">
+    <main className="bg-slate-600">
       <QueryClientProvider client={queryClient}>
         <Router>
           <Routes>
