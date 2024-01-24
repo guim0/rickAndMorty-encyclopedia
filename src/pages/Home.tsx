@@ -19,7 +19,7 @@ export const Home = () => {
   };
 
   return (
-    <main className="w-full h-auto md:h-screen bg-slate-600">
+    <main className="w-full h-auto md:h-screen bg-slate-800">
       <nav className="max-w-[1440px] mx-auto my-0">
         <div className="links flex flex-wrap justify-center md:flex-nowrap md:justify-between px-6 w-full">
           <div className="max-w-[300px] min-w-[200px] m-0 p-0 ">
