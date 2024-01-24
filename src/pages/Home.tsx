@@ -3,21 +3,24 @@ import { useCharacters } from "../api/Character";
 import RickAndMortyLogo from "../assets/logo.png";
 import Character from "../components/Characters/Character";
 import { ICharacters } from "../components/Characters/Characters";
+import { Loading } from "../components/Loading";
 import { Routes } from "../routes";
 import "../styles/Home.scss";
 export const Home = () => {
   const { data, isLoading, isPreviousData, status } = useCharacters(1);
   const previewData = () => {
-    if (!data?.results) return [];
+    if (!data?.results) return <Loading isLoading={isLoading} />;
 
     const dataSliced = data?.results.slice(1, 5);
 
-    return dataSliced.map((items: ICharacters) => <Character {...items} />);
+    return dataSliced.map((items: ICharacters, idx: number) => (
+      <Character {...items} key={idx} />
+    ));
   };
 
   return (
-    <main className="container">
-      <nav className="max-w-[1290px]">
+    <main className="w-full h-screen">
+      <nav className="max-w-[1440px] mx-auto my-0">
         <div className="links flex flex-wrap justify-center md:flex-nowrap md:justify-between px-6 w-full">
           <div className="max-w-[300px] min-w-[200px] m-0 p-0 ">
             <img src={RickAndMortyLogo} alt="logo" />
