@@ -3,4 +3,5 @@ export enum QUERY_KEY {
   locations = "locations",
   filterCharacter = "findCharacter",
   episodes = "episodes",
+  characterById = "characterById"
 }
