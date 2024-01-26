@@ -8,7 +8,7 @@ import { Routes } from "../routes";
 import "../styles/Home.scss";
 export const Home = () => {
   const { data, isLoading } = useCharacters(1);
-  const previewData = () => {
+  const previewCharacters = () => {
     if (!data?.results) return <Loading isLoading={isLoading} />;
 
     const dataSliced = data?.results.slice(1, 4);
@@ -41,13 +41,16 @@ export const Home = () => {
       </nav>
 
       <section className="container px-4">
-        <div className="flex-col flex gap-10">
-          <p className="text-white text-2xl font-light ml-2">
+        <h2 className="text-white text-3xl m-2 mb-10">
+          What'll you find here?
+        </h2>
+        <div className="flex-col flex gap-10 mt-5">
+          <p className="text-white text-2xl font-light ml-2 mb-[-20px]">
             Will be possible to visualize and search for Name on de "Characters"
             Page
           </p>
-          <div className="flex flex-wrap justify-start gap-3 my-4 align">
-            {previewData()}
+          <div className="flex flex-wrap justify-start gap-3">
+            {previewCharacters()}
             <p className="text-white font-medium self-center md:self-end">
               And more, at the{" "}
               <a className="underline" href="/characters">
