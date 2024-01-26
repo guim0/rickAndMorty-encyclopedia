@@ -46,8 +46,8 @@ export const Home = () => {
         </h2>
         <div className="flex-col flex gap-10 mt-5">
           <p className="text-white text-2xl font-light ml-2 mb-[-20px]">
-            Will be possible to visualize and search for Name on de "Characters"
-            Page
+            Will be possible to visualize and search for their Name on
+            "Characters" Page
           </p>
           <div className="flex flex-wrap justify-start gap-3">
             {previewCharacters()}
