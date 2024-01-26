@@ -11,7 +11,7 @@ export const Home = () => {
   const previewData = () => {
     if (!data?.results) return <Loading isLoading={isLoading} />;
 
-    const dataSliced = data?.results.slice(1, 5);
+    const dataSliced = data?.results.slice(1, 4);
 
     return dataSliced.map((items: ICharacters, idx: number) => (
       <Character {...items} key={idx} />
@@ -19,7 +19,7 @@ export const Home = () => {
   };
 
   return (
-    <main className="w-full h-auto md:h-screen bg-slate-800">
+    <main className="w-full h-auto lg:h-screen bg-slate-800">
       <nav className="max-w-[1440px] mx-auto my-0">
         <div className="links flex flex-wrap justify-center md:flex-nowrap md:justify-between px-6 w-full">
           <div className="max-w-[300px] min-w-[200px] m-0 p-0 ">
@@ -46,8 +46,14 @@ export const Home = () => {
             Will be possible to visualize and search for Name on de "Characters"
             Page
           </p>
-          <div className="flex flex-wrap justify-center gap-3 my-4">
+          <div className="flex flex-wrap justify-start gap-3 my-4 align">
             {previewData()}
+            <p className="text-white font-medium">
+              And more, at the{" "}
+              <a className="underline" href="/characters">
+                Characters Page!
+              </a>
+            </p>
           </div>
         </div>
       </section>
