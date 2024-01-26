@@ -24,7 +24,7 @@ export const CharactersPage = () => {
   };
 
   return (
-    <main className="h-auto bg-gray-800">
+    <main className="h-auto lg:h-screen bg-gray-800">
       <GoBack />
       <div className="text-center">
         <h1 className="text-white text-5xl">Characters</h1>

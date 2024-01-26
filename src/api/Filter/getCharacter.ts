@@ -19,13 +19,13 @@ export const useGetCharacter = (nameFilter: string = "i", page: number = 1) => {
     return data;
   };
 
-  const { data, isLoading } = useQuery(
+  const { data, isLoading, refetch } = useQuery(
     [QUERY_KEY.filterCharacter, [nameFilter, page]],
     fetchFindCharacter
   );
 
   const handleClear = () => {
-    window.location.reload();
+    nameFilter = "i";
   };
 
   return {
