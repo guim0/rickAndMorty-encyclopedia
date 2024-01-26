@@ -48,7 +48,7 @@ export const Home = () => {
           </p>
           <div className="flex flex-wrap justify-start gap-3 my-4 align">
             {previewData()}
-            <p className="text-white font-medium">
+            <p className="text-white font-medium self-center md:self-end">
               And more, at the{" "}
               <a className="underline" href="/characters">
                 Characters Page!
