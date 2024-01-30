@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import ArrowDownIcon from "../../assets/icons/arrow-down.png";
 export interface IEpisodeCard {
@@ -20,18 +20,21 @@ export const Card = ({
   const [dropdown, setDropdown] = useState(false);
   const [ids, setIds] = useState([]);
 
-  const smallPreviewCharacters = async () => {
-    // return (
+  const fetchCharacters = async (url: string) => {
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
   };
-
-  //   <>
-  //     <ul>
-  //       {slided.map((i, idx) => (
-  //         <li key={idx}>{i.name}</li>
-  //       ))}
-  //     </ul>
-  //   </>
-  // );
+  const fetchEvery = async () => {
+    let slicedArray = characters.slice(0, 5);
+    const promises = slicedArray.map((url) => fetchCharacters(url));
+    const results = await Promise.all(promises);
+    console.log(results);
+    return results;
+  };
+  useEffect(() => {
+    fetchEvery;
+  }, [fetchEvery]);
 
   return (
     <section key={id} className="w-[650px] h-[300px]">
@@ -51,24 +54,23 @@ export const Card = ({
       </div>
 
       {/* TODO: Add dropdown with characters */}
-      {dropdown && (
-        <div className="bg-gray-300 max-w-[400px] px-2 rounded-b-md">
-          <div className="w-full flex items-center justify-between">
-            <p>Show preview characters</p>
-            <div
-              className="cursor-pointer"
-              onClick={() => setDropdown(!dropdown)}
-            >
-              <img
-                src={ArrowDownIcon}
-                className="mx-auto my-0 w-[20px] bg-white p-1 rounded-full border-black"
-                alt=""
-              />
-            </div>
+
+      <div className="bg-gray-300 max-w-[400px] px-2 rounded-b-md">
+        <div className="w-full flex items-center justify-between">
+          <p>Show preview characters</p>
+          <div
+            className="cursor-pointer"
+            onClick={() => setDropdown(!dropdown)}
+          >
+            <img
+              src={ArrowDownIcon}
+              className="mx-auto my-0 w-[20px] bg-white p-1 rounded-full border-black"
+              alt=""
+            />
           </div>
-          {dropdown ? <>{smallPreviewCharacters()}</> : null}
         </div>
-      )}
+        {/* {!dropdown ? <>{smallPreviewCharacters()}</> : null} */}
+      </div>
     </section>
   );
 };

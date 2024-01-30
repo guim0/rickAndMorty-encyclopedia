@@ -3,8 +3,6 @@ import { QUERY_KEY } from "../../constants/queryKeys";
 
 export const useCharacterById = (id: number) => {
   const fetchCharacterById = async () => {
-
-    console.log(id)
     const response = await fetch(
       `https://rickandmortyapi.com/api/character/${id}`
     );
