@@ -7,7 +7,7 @@ import { Filter } from "../components/Filter";
 import { Pagination } from "../components/Pagination";
 
 export const CharactersPage = () => {
-  const [nameFiltered, setNameFiltered] = useState("");
+  const [nameFiltered, setNameFiltered] = useState("i");
   const [page, setPage] = useState(1);
   const [pageFilter, setPageFilter] = useState(1);
 
@@ -38,7 +38,7 @@ export const CharactersPage = () => {
         status={status}
       />
       <Pagination
-        next={data?.info.next !== null ? true : false}
+        next={!data?.info.next}
         page={!nameFiltered && nameFiltered.length < 2 ? page : pageFilter}
         isPreviousData={isPreviousData}
         setPage={

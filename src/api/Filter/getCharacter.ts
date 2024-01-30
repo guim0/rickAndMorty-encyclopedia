@@ -26,6 +26,7 @@ export const useGetCharacter = (nameFilter: string = "i", page: number = 1) => {
 
   const handleClear = () => {
     nameFilter = "i";
+    refetch();
   };
 
   return {
