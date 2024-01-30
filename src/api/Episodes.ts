@@ -10,7 +10,7 @@ export const useEpisodes = (page: number) => {
     return data;
   };
 
-  const { data, isLoading } = useQuery(
+  const { data, isLoading, ...rest } = useQuery(
     [QUERY_KEY.episodes, page],
     fetchEpisodes
   );
@@ -18,5 +18,6 @@ export const useEpisodes = (page: number) => {
   return {
     data,
     isLoading,
+    ...rest,
   };
 };

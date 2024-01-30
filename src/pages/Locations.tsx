@@ -3,7 +3,7 @@ import { Location } from "../components/Locations/Location";
 
 export const LocationsPage = () => {
   return (
-    <main className="bg-gray-800 h-auto">
+    <main className="w-full h-auto lg:h-screen bg-slate-800">
       <GoBack />
       <main className="text-center text-white">
         <h1 className="text-6xl">Location</h1>
