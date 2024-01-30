@@ -9,7 +9,8 @@ import "../styles/Home.scss";
 export const Home = () => {
   const { data, isLoading } = useCharacters(1);
   const previewCharacters = () => {
-    if (!data?.results) return <Loading isLoading={isLoading} />;
+    if (!data) return [];
+    if (isLoading) return <Loading isLoading={isLoading} />;
 
     const dataSliced = data?.results.slice(1, 4);
 

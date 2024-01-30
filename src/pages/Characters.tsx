@@ -19,6 +19,7 @@ export const CharactersPage = () => {
   } = useGetCharacter(nameFiltered, pageFilter);
 
   const handleData = () => {
+    if (isLoading) return [];
     if (!nameFiltered && nameFiltered.length <= 2) return data?.results;
     return filteredData?.results;
   };
