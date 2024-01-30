@@ -53,9 +53,9 @@ export const Home = () => {
             {previewCharacters()}
             <p className="text-white font-medium self-center md:self-end">
               And more, at the{" "}
-              <a className="underline" href="/characters">
+              <Link className="underline" to={Routes.CHARACTERS}>
                 Characters Page!
-              </a>
+              </Link>
             </p>
           </div>
         </div>
