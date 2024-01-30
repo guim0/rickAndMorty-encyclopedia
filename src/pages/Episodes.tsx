@@ -30,7 +30,9 @@ export const EpisodesPage = () => {
           your streaming service, also mention the characters on each episode.
         </p>
       </div>
-      <div className="flex flex-wrap">{renderEpisodes()}</div>
+      <div className="flex flex-wrap items-center justify-center">
+        {renderEpisodes()}
+      </div>
 
       <Pagination
         next={!data?.info.next}
