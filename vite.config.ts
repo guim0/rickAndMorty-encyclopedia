@@ -1,12 +1,11 @@
 /// <reference types="vitest" />
 /// <reference types="vite/client" />
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import ReactRefresh from "@vitejs/plugin-react";
+import react from "@vitejs/plugin-react-swc";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react({ fastRefresh: true })],
+  plugins: [react()],
   test: {
     globals: true,
     environment: "jsdom",
