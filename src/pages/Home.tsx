@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useCharacters } from "../api/Character";
 import RickAndMortyLogo from "../assets/logo.png";
-import Character from "../components/Characters/Character";
+import { Character } from "../components/Characters/Character";
 import { ICharacters } from "../components/Characters/Characters";
 import { Loading } from "../components/Loading";
 import { Routes } from "../routes";

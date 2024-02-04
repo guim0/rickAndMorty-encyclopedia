@@ -1,11 +1,11 @@
 import { Loading } from "../Loading";
-import Character from "./Character";
+import { Character } from "./Character";
 
 export type ICharacters = {
   id: number;
   name: string;
   image: string;
-  status: "Alive" | "Dead" | "unknown";
+  status: string;
   gender: string;
   species: string;
   origin: { name: string };

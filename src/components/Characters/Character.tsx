@@ -1,7 +1,7 @@
 import "../../styles/CharacterCard.scss";
 import { ICharacters } from "./Characters";
 
-export default function Character(props: ICharacters) {
+export function Character(props: ICharacters) {
   const lifeSign = (status: string) => {
     if (status === "unknown") return "unknown";
     if (status === "Alive") return "alive";
