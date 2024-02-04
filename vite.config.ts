@@ -6,6 +6,7 @@ import ReactRefresh from "@vitejs/plugin-react";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  plugins: [react({ fastRefresh: true })],
   test: {
     globals: true,
     environment: "jsdom",
