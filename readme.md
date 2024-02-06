@@ -1,39 +1,51 @@
-## Welcome to my repository, this is an attempt to create an encyclopedia of the Rick and Morty universe.
+![Rick and Morty logo](public\rick-and-morty.png)
 
-### In this project...
+## Welcome!
 
-We are using a well-known API to study React-query. In this opportunity, the intention is to create an encyclopedia with as much information as the API can provide.
+On this project, i wanted to display the most information possible, like:
 
-### Funcionality
-
-- Check all the Characters on the show
-- Episodes Info
-- Check the locations from Rick and Morty Universe
-- And more
+- Accessing pages like: _Characters_, _Locations_, \_Episodes
+- Search for Characters
+- See Episodes details
+- and more!
 
 ---
 
-### External API
+## External API - with React-Query
 
 - [Rick and Morty API](https://rickandmortyapi.com/documentation/#character)
 
 ## How to Execute on your local
 
+### Clone repository
+
+```
+git clone https://github.com/guim0/rickAndMorty-encyclopedia.git
+```
+
+- Access dir:
+  `cd rickAndMorty-encyclopedia`
+
 ### Install dependencies:
 
-`yarn`
+`yarn` or `npm i`
 
 ### Then:
 
-`yarn dev`
+`yarn dev` or `npm start`
 
 ### Technologies used:
 
 - Vite
+
 - React
+
 - Typescript
-- SASS
+
+- SASS (`migrating to tailwind on progress`)
+
 - React Query
+
 - TailwindCSS
 
 ---
