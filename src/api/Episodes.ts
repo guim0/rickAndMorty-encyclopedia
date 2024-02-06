@@ -3,8 +3,9 @@ import { QUERY_KEY } from "../constants/queryKeys";
 
 export const useEpisodes = (page: number) => {
   const fetchEpisodes = async () => {
+    console.log(page);
     const response = await fetch(
-      `https://rickandmortyapi.com/api/episode?page${page}`
+      `https://rickandmortyapi.com/api/episode?page=${page}`
     );
     const data = response.json();
     return data;

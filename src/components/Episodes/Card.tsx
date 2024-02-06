@@ -54,7 +54,10 @@ export const Card = ({
     return charactersFetched.map(
       (i: { name: string; status: string; img: string }) => (
         <>
-          <ul className="font-medium text-sm w-[260px] mx-auto bg-gray-200  rounded-3xl ">
+          <ul
+            className="font-medium text-sm w-[260px] mx-auto bg-gray-200  rounded-3xl "
+            key={crypto.randomUUID()}
+          >
             <li className="w-full pl-3">
               <div className=" mb-1 flex items-cented justify-between">
                 <div className="flex items-center gap-2">
