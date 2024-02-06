@@ -1,10 +1,10 @@
-![Rick and Morty logo](public\rick-and-morty.png)
+![Rick and Morty logo](public/rick-and-morty.png)
 
 ## Welcome!
 
 On this project, i wanted to display the most information possible, like:
 
-- Accessing pages like: _Characters_, _Locations_, \_Episodes
+- Accessing pages like: _Characters_, _Locations_, _Episodes_
 - Search for Characters
 - See Episodes details
 - and more!
